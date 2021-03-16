@@ -12,6 +12,8 @@
 # General files
 log/
 *.log
+libs/
+
 
 
 
