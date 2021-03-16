@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>ETC5513</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Patricia Menéndez" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ETC5513
+## Reproducible and Collaborative Practices
+### Patricia Menéndez
+### Department of Econometrics and Business Statistics
+
+---
+
+
+
+
+
+
+
+# Open frame
+
+&lt;img src="figs/kelly-sikkema-mdADGzyXCVE-unsplash.jpg" width="80%" /&gt;
+
+
+
+---
+
+class: center, middle
+# Recap
+
+![](https://media.giphy.com/media/SwDEkYmjgAe4D5CcXD/giphy.gif)
+
+
+---
+class: left, middle
+# Week 1 recap
+    1. Set the basis for the unit
+    2. Talked about how the unit is going to be organized
+    3. Talked about assessment
+    4. Briefly instroduced reproducibility
+    5. Brief R, Rstudio and git introduction
+    6. In the tutorial you got to know 
+    more about R and about some of the
+    available R and Rstudio resources to
+    help you through the semester.
+     
+
+---
+class:  left, top
+# This week (Week 2)
+    1. Reproducible reporting
+    2. R markdown documents
+    3. R code chunks options
+    4. Including images and figures
+    5. Computer file architecture
+    6. R projects
+    7. Good coding practices
+    
+  
+  
+---
+# Reproducibility and Replicability
+
+Definitions by the USA National Academies of Science, Engineering and Medicine:
+
+- .green[Reproducibility] ("computational reproducibility") means obtaining consistent computational results using the same input data, computational steps, methods, code, and conditions of analysis. 
+
+- .green[Replicability] means obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data
+
+
+  
+[Report on reproducibility and replicability here](https://www.nap.edu/read/25303/chapter/1#xix)
+
+
+---
+class:  middle, center
+# Scafolding of reproducible research/reporting
+
+&lt;img src="figs/paul-skorupskas-7KLa-xLbSXA-unsplash.jpg" width="80%" /&gt;
+
+---
+# Think about reproducible reporting as a project
+
+The project needs to contain .green[all the resources needed] 
+to produce a reproducible output (paper/report)
+
+&lt;br&gt;
+.green[Reproducibility] ("computational reproducibility") means 
+obtaining consistent computational results using the same input data,
+computational steps, methods, code, and conditions of analysis. 
+---
+# Elements of a reproducible project
+ 
+ - .green[We need to have a plan to organize, store and make the project files available].
+
+ - All the elements of the project should be  files.
+
+- All files should be stored within the project location (typically a folder).
+
+- All your files should be explicitly tied together.
+
+
+
+
+---
+
+# Workflow for reproducible research
+
+
+
+&lt;img src="figs/Workflow.png" width="80%" style="display: block; margin: auto auto auto 0;" /&gt;
+[Reproducible Research with R and Rstudio by Christopher Gandrud ](http://christophergandrud.blogspot.com/2013/07/getting-started-with-reproducible.html)
+
+
+---
+
+# Stages for reproducible data analysis and reporting
+.content-box-soft[ 
+- Clear research question/s to be investigated
+]
+
+.content-box-soft[ 
+- Clear objectives: What is the goal of this report?
+]
+
+.content-box-soft[ 
+- Data gathering
+]
+.content-box-soft[ 
+- Exploratory data analysis
+]
+.content-box-soft[ 
+- Data analysis
+]
+.content-box-soft[ 
+- Results presentation
+]
+
+.bold[All of the above needs to be documented and tied together!]
+
+---
+# ETC5513 
+
+.green[
+* .bold[Create reports that are reproducible:]
+
+    + Incorporate analyses that are reproducible
+    + Include report text
+    + All combined together
+]
+
+Our reproducible reports will be created using the scripting language .green[R]
+combined with .green[markdown]. 
+
+
+---
+class:  left, top
+# What is Markdown? 
+
+.green[Markdown is a lightweight markup language that you can use
+to add formatting elements to plaintext text documents.] It was 
+created by John Gruber in 2004. [Read more here](https://www.markdownguide.org/getting-started/)
+
+* Markdown is a "text" formatting syntax
+* Can be easily render to more complex formats such as:
+pdf, html, pdf, doc ...
+
+## Good news!
+
+- We can use markdown inside a type of R documents called R markdown files (Rmd) `\(\rightarrow\)` text can be included and combined with R code.
+
+Today, we'll learn how to do it.
+
+
+---
+class:  left, top
+# Markdown example
+
+.pull-left[
+.purple[Markdown code]
+```markdown
+# Header 1
+## Header 2
+
+- Unordered list 1 
+1. Ordered list 1
+
+ _This is italic._
+ 
+ *This too.*
+ 
+ **This is bold**
+ ```
+]
+
+.pull-right[
+.purple[Render document output]
+.content-box-soft[ 
+# Header 1
+## Header 2
+
+* Unordered list 1 
+1. Ordered list 1
+
+_This is italic._
+
+*This too.*
+
+**This is bold**
+
+]
+]
+
+
+---
+# Main tool for combinig R code and text
+
+.green[Our main tool is going to be R and its packages] and we are going to use R via Rstudio.
+
+- R is structured in libraries
+- For reproducibility we have two libraries that are crucial.
+- Does anyone which ones are those?
+
+&lt;img src="figs/Rstudio.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+
+---
+class:  left, top
+# RMarkdown and knitr
+
+* Rmarkdown is a package within R that allows us to create documents using **Markdown**
+* Knitr is an R package that allows us to render Rmarkdown code into html, pdf, doc etc ..
+.pull-left[
+&lt;img src="figs/rmarkdown.png" width="50%" /&gt;
+
+]
+.pull-right[
+&lt;img src="figs/knitr_0.png" width="50%" /&gt;
+]
+
+---
+class: left, middle
+# R markdown documents 
+
+- R Markdown document is a file format for making dynamic documents with R.
+- R markdown documents have extension Rmd
+
+---
+class: left, middle
+# Dynamic documents 
+
+Rmarkdown + Knitr --&gt; dynamic document
+
+- Rmarkdown allow us to not only use Markdown to write the 
+.green[text] in the report, it also allow us to include .green[R code].
+
+- .green[Knitr] with the help of .green[Pandoc] allow us to render documents that contain
+a mixed of the components above (text + code)
+
+- .green[Pandoc]  is a universal document converter
+
+- .green[Pandoc] is a  used by the Rmarkdown package to .bold[.green[render]] an 
+Rmd file into a new format. For example, an Rmd file can be .bold[.green[render]] into HTML, PDF,
+or Microsoft Word file...
+
+- Read more about Pandoc [.bold[here ]](https://pandoc.org)
+
+
+---
+class: center, middle
+# Possible outputs
+
+
+&lt;img src="figs/outputs.png" width="60%" /&gt;
+Source: Rstudio
+
+---
+class: center, middle
+# Rmarkdown file structure
+
+.content-box-soft[ 
+Three main components .bold[YAML], .bold[text] and  .bold[R code chunks]
+]
+
+&lt;img src="figs/demo-first-rmd.png" width="90%" /&gt;
+
+[**More info about Rmarkdown**](https://rmarkdown.rstudio.com)
+
+---
+# Rmarkdown anatomy
+.green[
+
+* .bold[ Metadata]: It is written in markdown at the top of the file
+between '---' in YAML
+]
+
+
+```markdown
+---
+title: "ETC5513"
+author: "Patricia Menendez"
+output: html_document
+---
+```
+
+---
+# Rmarkdown anatomy
+.green[
+* .bold[Text] is written in markdown
+]
+```markdown
+# This is a section header
+## This is a subsection header
+In this section it is **important**
+```
+# This is a section header
+## This is a subsection header
+
+
+---
+# Rmarkdown anatomy
+.green[
+* .bold[R code]  chunk definition
+]
+
+.pull-left[
+
+```` ```{r X, eval = FALSE} ````
+
+
+```r
+library(ggplot2)
+ggplot(cars, 
+       aes(x = speed, 
+           y = dist)
+       ) +
+  geom_point()
+```
+
+```` ``` ````
+]
+
+.pull-right[
+![](Week2_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+]
+
+
+
+---
+class:  left, top
+## R code
+
+
+```r
+library(ggplot2)
+
+data = data(InsectSprays)
+
+head(InsectSprays)
+```
+
+--
+
+
+```r
+ggplot(data = InsectSprays,
+       aes(x = spray, y = count, fill = spray)
+       ) +
+  geom_boxplot(alpha = 0.6
+               ) +
+  ggtitle("Insect sprays boxplots")
+```
+
+
+---
+class:  center, top
+## R code output
+
+
+
+
+.pull-left[
+
+
+```
+##   count spray
+## 1    10     A
+## 2     7     A
+## 3    20     A
+## 4    14     A
+## 5    14     A
+## 6    12     A
+```
+]
+.pull-right[
+
+![](Week2_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+]
+
+
+---
+# R code chunks
+
+You can quickly insert R chunks linto your file with
+
+- the keyboard shortcut .green[Ctrl + Alt + I (OS X: Cmd + Option + I)]
+- the .green[Add Chunk]  command in the editor toolbar
+- or by typing the chunk delimiters 
+
+### Chunk options
+Chunk output can be customized with [knitr options](https://yihui.org/knitr/options/) 
+arguments, set inside the R chunk header .green[{r, include = FALSE, echo = FALSE}]:
+
+- .green[include = FALSE] prevents code and results from appearing in the finished file. R Markdown still runs the code in the chunk, and the results can be used by other chunks.
+- .green[echo = FALSE] prevents code, but not the results from appearing in the finished file. This is a useful way to embed figures.
+
+---
+# More R code chunks
+
+- .green[eval = FALSE] does not evaluate (or run) this code chunk when knitting the Rmd document.
+- .green[message = FALSE] prevents messages that are generated by code from appearing in the finished file.
+- .green[warning = FALSE] prevents warnings that are generated by code from appearing in the finished.
+- .green[fig.cap = "Text"] adds a caption to graphical results.
+- .green[fig.align = "center"] set the position of where a figure generated in an R code chunk will appear in the report
+_ Plus many more!
+
+&lt;br&gt;
+See the [R Markdown Reference Guide (here)](https://rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) 
+and [knitr options (here)](https://yihui.org/knitr/options/) 
+for a complete list of knitr chunk options.
+
+
+---
+# Global options 
+
+To set **global options** that apply to every chunk in your file, call **`knitr::opts_chunk$set()`** in a code chunk. Knitr will treat each option that you pass to `knitr::opts_chunk$set()` .green[.bold[as a global default that can be overwritten in individual chunk headers]].
+
+For example:
+
+**`knitr::opts_chunk$set(echo = FALSE)`**
+
+[More info here](https://yihui.org/knitr/options/) and [here](https://rmarkdown.rstudio.com/lesson-3.html)
+
+
+---
+# Caching
+- If document rendering becomes time consuming due to long computations, you can use knitr caching to improve performance. 
+
+- [Read more on R code Chunks options (here)](https://yihui.org/knitr/options/) describes how caching works
+
+- The [cache examples (here)](https://yihui.org/knitr/demo/cache/) provide additional details.
+
+.green[cache = TRUE] is an option within the R code chunks.
+
+More info on caching [here](https://bookdown.org/yihui/rmarkdown-cookbook/cache.html)
+
+---
+class:  left, top
+# Rmarkdown workflow
+&lt;img src="figs/rmarkdown_wizards.png" width="90%" /&gt;
+
+
+---
+class: center, middle
+# Example
+
+.pull-left[
+&lt;img src="figs/first-rmarkdown-code.png" width="90%" /&gt;
+]
+
+.pull-right[
+&lt;img src="figs/first-rmarkdown-output.png" width="90%" /&gt;
+]
+
+
+---
+class: center, middle
+# Knitting an Rmarkdown file to create an html
+
+.content-box-soft[ 
+Use knit at the top and select html
+]
+
+
+&lt;img src="figs/demo-knit-html.png" width="90%" /&gt;
+
+
+
+---
+class: center, middle
+# We can also knit a pdf file!
+
+&lt;img src="figs/demo-knit-pdf.png" width="90%" /&gt;
+
+.green[Rendering into pdf requires to have LATEX installed:]
+LaTeX is a high-quality typesetting system; it includes features designed for the production of technical and scientific documentation.
+---
+
+class: left, middle
+# Thanks to knitr and pandoc
+
+.pull-left[
+&lt;img src="figs/knitr_0.png" width="80%" /&gt;
+]
+
+.pull-right[
+Pandoc --&gt; Document converter
+https://pandoc.org/index.html
+
+]
+
+.content-box-soft[ 
+* knitr executes the code and converts .Rmd to .md
+* Pandoc renders the .md file to the output format you want.
+]
+
+
+---
+
+# Let's learn more about YAML
+
+```markdown---
+title: "R Notebook"
+author: Patricia Menendez
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: flatly
+  word_document:
+    toc: true
+  pdf_document:
+    toc: true
+---
+```
+toc = Table of contents --&gt; 
+More resources [here](https://bookdown.org/yihui/rmarkdown/html-document.html)
+
+---
+class: center, middle
+# This is the output html file
+
+&lt;img src="figs/new_theme.png" width="100%" /&gt;
+
+---
+# YAML example 2
+
+```markdown---
+title: "test"
+output: html_document
+
+---
+```
+
+
+---
+class: center, middle
+# Corresponding rendered html file
+
+&lt;img src="figs/theme.jpeg" width="60%" /&gt;
+
+
+
+---
+class: left, middle
+# Tables and captions
+
+
+```r
+library(dslabs)
+
+data("murders")
+
+table_data &lt;- head(murders, 5)
+
+knitr::kable(table_data, 
+             caption = "Gun murder data
+             from FBI reports by state",
+             digits = 2)
+```
+R package .green[knitr] and for more info about function *kable()* 
+type .green[?kable] into the R console!
+
+---
+class: left, middle
+# Tables and captions
+
+&lt;table&gt;
+&lt;caption&gt;Gun murder data from FBI by state&lt;/caption&gt;
+ &lt;thead&gt;
+  &lt;tr&gt;
+   &lt;th style="text-align:left;"&gt; state &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; abb &lt;/th&gt;
+   &lt;th style="text-align:left;"&gt; region &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; population &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; total &lt;/th&gt;
+  &lt;/tr&gt;
+ &lt;/thead&gt;
+&lt;tbody&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Alabama &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; AL &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; South &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 4779736 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 135 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Alaska &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; AK &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; West &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 710231 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 19 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Arizona &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; AZ &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; West &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 6392017 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 232 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; Arkansas &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; AR &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; South &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 2915918 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 93 &lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+   &lt;td style="text-align:left;"&gt; California &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; CA &lt;/td&gt;
+   &lt;td style="text-align:left;"&gt; West &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 37253956 &lt;/td&gt;
+   &lt;td style="text-align:right;"&gt; 1257 &lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+---
+class: left, middle
+# R Figures and captions
+
+
+- R figures get created inside the R chunks --&gt;
+
+   + .green[ggplot2]
+   
+   + .green[tidyverse]
+- .green[fig.caption =" This is my caption"] inside the R chunk options
+
+
+---
+class: top, middle
+# Inserting external images/photos/figures
+
+.green[Different options:]
+
+```` ```{r out.width = '100%', echo = TRUE} ````
+
+
+```r
+knitr::include_graphics("figs/theme.png")
+```
+
+&lt;img src="figs/theme.png" width="80%" /&gt;
+
+---
+class: left, middle
+# Inserting gifs using url's
+
+.green[You can add this in any part of the document other than 
+R code chunk --&gt;]
+
+`\(![](https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif)\)`
+
+
+&lt;img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="40%" style="display: block; margin: auto;" /&gt;
+
+---
+class: inverse
+# Now we know how to create an Rmd file
+
+.bold[But there is more to a project than that!]
+
+In a project we have:
+
+- Data
+- Possibly other R or Rmd scripts
+- figures etc
+
+All the documents related to a project must be in the same folder under an Rstudio project.
+
+.purple[Let's talk about computer paths before moving into R projects]
+
+
+---
+class: center, top
+
+# Computer paths
+
+&lt;img src="figs/nathan-anderson-uq5JjGK_4SE-unsplash.jpg" width="80%" /&gt;
+
+Where are files and folders store in our computer?
+
+---
+class: left, top
+# Computer Paths
+
+* A _path_ is the complete location or name of where a computer 
+file, directory, device, or web page is located.
+
+## Examples
+
+  - .bolder[Windows] `\(\rightarrow\)` .purple[C:\documents\ETC5513]
+  - .bolder[Mac/linux] `\(\rightarrow\)` .purple[/Users/documents/ETC5513]
+  - .bolder[Internet path] `\(\rightarrow\)` .purple[http://www.google.com]
+ 
+
+
+
+---
+class: left, top
+# Absolute and Relative Paths
+
+* .bold[Absolute or full path]
+An absolute or full path begins with a drive letter followed by a colon, such as D: or /users.
+  - Windows: C:\documents\charlie
+  - Mac/linux: /Users/documents/courses/ETC5513
+
+* .bold[Relative path]
+A relative path refers to a location that is .green[relative to a current directory] (or folder):
+  - ETC5513/exercise.Rmd
+(no matter where the folder sits things can actually run)
+.content-box-soft[ 
+It is essential to understand where your directories and files are within your computer. 
+Having clarity about that and the projects file architecture
+gives you total control about its organization
+]
+
+---
+# Order versus mess
+.pull-left[
+
+&lt;img src="figs/omid-kashmari-s34f0Wxbens-unsplash.jpg" width="80%" /&gt;
+
+
+]
+
+.pull-right[
+
+&lt;img src="figs/sharon-mccutcheon-tn57JI3CewI-unsplash.jpg" width="80%" /&gt;
+
+
+]
+
+
+
+
+
+---
+class:  left, top
+
+#  Work projects
+
+### R work projects
+
+*  .content-box-soft[Each project has a unique working directory]
+
+* .content-box-soft[ Clean file system: all files related to a single project should be in the same folder]
+  - data `\(\rightarrow\)` typically is a folder
+  - code
+  - figures `\(\rightarrow\)` typically is a folder
+  - notes
+
+ 
+* .purple[.bold[File path discipline: all paths should be relative  to the project’s folder]] --&gt; .green[.bold[Why?]]
+* Refer to the computer location where files and folders are.
+* .red[Remember Absolute paths --&gt; not reproducible]
+
+---
+class: left, middle
+# Rstudio project example
+.green[
+*  +  Data folder `\(\rightarrow\)` containing all the data
+   +  Images/Figures folder  `\(\rightarrow\)` containing all the images that are not produced within the Rmd file.
+   +  .Rproj file
+   +  Rmd file
+   + R scripts etc...
+]
+
+
+
+---
+class: left, top
+# Rstudio projects
+Are associated with R working directories.
+You can create an RStudio project:
+.content-box-soft[ 
+* In a brand new directory
+* In an existing directory where you already have R code and data
+* From a version control repository
+]
+
+[Read more on Rstudio projects here](https://support.rstudio.com/hc/en-us/articles/200526207-Using-Projects)
+
+### Inside Rstudio how do we create a new project?
+
+.green[File &gt; New project &gt; (Few options)]
+
+
+---
+# New project in practise
+
+&lt;img src="figs/newproject.png" width="100%" /&gt;
+
+---
+class: left, top
+# RStudio projects advantages
+
+When a new project is created RStudio:
+.content-box-soft[ 
+* Creates a project file (with an .bold[.Rproj] extension) within the project directory.
+
+* This file can also be used as a shortcut for 
+  opening the project directly from the filesystem.
+
+* Creates a hidden directory (named .Rproj.user) where project-specific temporary
+files (e.g. auto-saved source documents, window-state, etc.) are stored. 
+
+* Loads the project into RStudio and display its name in the Projects toolbar 
+]
+
+
+
+---
+class:  center, top
+
+# Let's talk about good coding style
+
+![](https://media.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif)
+
+---
+class:  left, top
+
+# Good coding style
+
+* There are different styles and it is important (for various reasons) to be careful about how you 
+write your code.
+
+* .bold[Bad example:]
+.red[
+library(ggplot2)
+data = data(InsectSprays)
+ggplot(data=InsectSprays, aes(spray, count, fill=spray))+geom_boxplot(alpha=0.6)+ggtitle("Insect sprays boxplots")
+]
+
+.content-box-soft[ 
+Long lines, no spaces and no structure in the code --&gt; Make it very hard to read and debug!
+]
+---
+# Good example
+
+
+
+```r
+library(ggplot2)
+
+ggplot(data = InsectSprays,
+       aes(x = spray, y = count, fill = spray)) +
+  geom_boxplot(alpha = 0.6) +
+  ggtitle("Insect sprays boxplots")
+```
+
+ ## Resources
+.green[
+ In this course we will use the Tidyverse style guide
+* https://style.tidyverse.org
+
+* http://adv-r.had.co.nz/Style.html
+
+]
+---
+
+# Examples of good coding style
+.content-box-soft[ 
+
+* Source code should be readable by humans and self explanatory
+]
+.content-box-soft[ 
+
+* In general long sentences are not a good idea (max 80-100 characters is a good tradeoff)
+]
+
+* .green[For R chunks a good guideline is the Tidyverse style guide]
+.content-box-soft[ 
+  - Do use spaces: for example around &lt;-, +, =, -, after ',' and before '{'
+  
+  - For comments use # For the end of line comments and ## for the indented comments
+]
+.bold[The more organized you are writing your code the easier will be to read it and 
+debug it.
+]
+
+http://adv-r.had.co.nz/Style.html#undefined
+
+
+---
+
+# Good practises for reproducible research
+
+* Have a plan to:
+     
+     - organize, store, and make your files available.
+     
+* Set up --&gt; .bold[Create an R project for each of your projects] (reports/papers etc...)
+
+.content-box-duke-green[
+* Make sure all the steps in your analysis are documented
+* All files should be human readable
+* All files related to a project must be explicitly tied  together
+]
+
+
+---
+class:  left, top
+#  Reproducible workflow
+
+![30%](figs/environmental-data-science-r4ds-general.png)
+Allison Hortt (@allison_horst)
+
+
+
+---
+
+
+
+
+background-image: url("figs/ana-bg-2-rect.jpg")
+background-size: cover
+class: hide-slide-number split-70
+count: false
+
+.column.shade_black[.content[
+
+&lt;br&gt;&lt;br&gt;
+
+
+
+.bottom_abs.width100[
+
+Lecturer: Patricia Menéndez
+
+Department of Econometrics and Business Statistics&lt;br&gt;
+
+
+
+
+
+]
+
+&lt;br /&gt;
+This work is licensed under a &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/a&gt;.
+
+&lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /&gt;&lt;/a&gt;
+
+
+]]
+
+
+
+&lt;div class="column transition monash-m-new delay-1s" style="clip-path:url(#swipe__clip-path);"&gt;
+&lt;div class="background-image" style="background-image:url('images/large.png');background-position: center;background-size:cover;margin-left:3px;"&gt;
+&lt;svg class="clip-svg absolute"&gt;
+&lt;defs&gt;
+&lt;clipPath id="swipe__clip-path" clipPathUnits="objectBoundingBox"&gt;
+&lt;polygon points="0.5745 0, 0.5 0.33, 0.42 0, 0 0, 0 1, 0.27 1, 0.27 0.59, 0.37 1, 0.634 1, 0.736 0.59, 0.736 1, 1 1, 1 0, 0.5745 0" /&gt;
+&lt;/clipPath&gt;
+&lt;/defs&gt;	
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

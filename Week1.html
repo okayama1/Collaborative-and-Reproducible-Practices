@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>ETC5513</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Patricia Menéndez" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+# ETC5513
+## Reproducible and Collaborative Practices
+### Patricia Menéndez
+### Department of Econometrics and Business Statistics
+
+---
+
+
+
+
+
+
+
+class: center, middle
+![](https://media.giphy.com/media/OkJat1YNdoD3W/giphy.gif)
+
+
+---
+class: center, middle
+# ETC5513 team
+
+Dr Patricia Menéndez
+&lt;img src="figs/patricia.jpeg" width="35%" style="display: block; margin: auto;" /&gt;
+
+Lecturer Department of Econometrics and Business Statistics.
+
+Chief Examiner for the unit.
+
+
+---
+class: center, middle
+# ETC5513: Teaching team (TAs)
+
+.pull-left[
+* Fan Chen, Ph.D. candidate at Monash EBS
+
+]
+.pull-left[
+&lt;img src="figs/fan.jpg" width="40%" /&gt;
+]
+
+.pull-left[
+ * Naveen  Kaushik, Data Scientist, Ventia Pty Ltd.
+]
+.pull-left[
+&lt;img src="figs/naveen.png" width="45%" /&gt;
+
+]
+
+
+
+
+---
+# Of course Yourselves too!
+
+![](figs/baim-hanif-pYWuOMhtc6k-unsplash.jpg)
+
+.tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@baim?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Baim Hanif&lt;/a&gt; on &lt;a href="https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+
+
+
+---
+class: left, middle
+# Today's Lecture 
+.content-box-soft[ 
+* Understand the aims and structure of the unit
+]
+
+.content-box-soft[ 
+* Explain the need for reproducible and collaborative practices
+]
+.content-box-soft[ 
+* Introduce the main tools that we are going to use during the lectures/tutorials
+]
+
+
+
+---
+class: left, top
+
+# ETC5513 Unit Objectives
+
+.green[
+1. Develop skills to create reproducible data analyses.
+2. Understand the operation of version
+control systems.
+3. Advace use of version control.
+3. Utilise version control to integrate data analysis efforts
+of team members.
+4. Effectively work with a group to construct a
+collaborative data science project.
+
+]
+.bold[All that combined with the learning of statistical concepts!]
+.content-box-soft[ 
+Please .bold[be participative] during the lectures and tutorials. The success of the unit depends not only on the teaching team but also on yourselves as part of the unit's team! ]
+
+
+---
+class: left, top
+
+# ETC5513 program
+
+1.	Course introduction
+2.	Reproducible reports using R markdown
+3.	Introduction to version control systems: git and GitHub
+4.	Reproducible reporting using R markdown, git and GitHub 
+5.	Collaborative practices requests and issues
+6.	Reproducible and collaborative practices in industry 
+7.	Reproducible reporting and version control systems
+8.	Workflows for reproducible data analysis
+9.	Reproducible reporting for specialized and broad audiences
+10.	Advanced collaborative practices 
+11.	Reproducible workflows in consultancy
+12.	Review and presentations
+
+---
+class: center, top
+
+# Unit Structure
+
+
+
+.pull-left[
+* Start with individual projects 
+.tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@firmbee?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;William Iven&lt;/a&gt; on &lt;a href="https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+]
+.pull-left[
+&lt;img src="figs/william-iven-gcsNOsPEXfs-unsplash.jpg" width="50%" /&gt;
+
+]
+
+.pull-left[
+ * Will continue with group projects
+ 
+ .tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@homajob?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Scott Graham&lt;/a&gt; on &lt;a href="https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+
+]
+.pull-left[
+&lt;img src="figs/helloquence-5fNmWej4tAA-unsplash.jpg" width="50%" /&gt;
+
+
+]
+
+.pull-left[
+ * Finally, as a class, we will produce a join project
+ 
+ .tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@baim?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Baim Hanif&lt;/a&gt; on &lt;a href="https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+]
+.pull-left[
+&lt;img src="figs/baim-hanif-pYWuOMhtc6k-unsplash.jpg" width="50%" /&gt;
+
+]
+
+
+---
+
+class: left, middle
+## What does that mean?
+
+.content-box-duke-green[
+* We'll learn to create reports that will be self contained and reproducible.
+]
+.content-box-duke-green[
+* We'll learn to keep and share the history of an R project using version control systems.
+]
+.content-box-duke-green[
+* We'll learn to work in collaborative projects using reproducible and version control instruments.
+]
+
+---
+class: left, middle
+# Unit structure and resources
+
+
+## Structure
+* 2hr .bold[.green[Interactive lectures]] `\(\times\)`  12 weeks
+* 1.5hr .bold[.green[Tutorials]] `\(\times\)`  12 weeks
+
+## Resources
+.content-box-neutral[Moodle]
+
+---
+class:  left, top
+
+# Lectures and tutorials  
+
+* The .bold[lectures] will be a combination of presentations with interactive exercises.
+
+   - Each lecture will commence with an  .bold[.green["open frame"]] (5-10min) where students can talk about their learning,
+   share comments, issues and resources with the rest of the class. That time can also be used for questions (questions will be welcomed at anytime during the lectures too).
+
+* The .bold[tutorials] will be entirely based on computer practicals and you will be working individually as well as in groups.
+  
+
+---
+class:  left, top
+# Lecture structure
+
+
+.content-box-neutral[
+- Open frame
+- Recap from previous lecture
+- Summary about lecture's content
+- Lecture delivery
+]
+
+&lt;img src="figs/CiervaCove20.jpg" width="50%" style="display: block; margin: auto;" /&gt;
+
+---
+class: left, middle
+# Lecturer tips
+
+* Come prepared to be an active learner
+* Engage yourself in the lecture
+* Share responsibility for learning
+* Bring your computer
+
+.green[
+ .bold[
+Take the challenge, it is going to be fun!
+ ]
+]
+
+
+---
+class: left, middle
+# Tutorials
+.green[.bold[Important:] Go over the class material before the tutorial!]
+### Goal
+* Practice the ideas covered in the lectures by working through activities
+and exercises individually and in groups.
+
+### In practice (Please see your tutorial allocation)
+.content-box-soft[ 
+  - You will get instructions with the tasks that need to be completed during the tutorial.
+  - Fan and Naveen will be there to guide and help you through the activities.
+  - Tutorials also provide a good opportunity for you to discuss and work with your peers.
+]
+
+---
+class: center, middle
+# Tutorials structure
+&lt;img src="figs/t1p1.png" width="90%" /&gt;
+---
+class: center, middle
+# Tutorials structure
+&lt;img src="figs/t2p.png" width="100%" /&gt;
+
+
+
+---
+class: left, middle
+# Assessment
+
+
+* Tutorials --&gt; .green[5%] which includes:
+  - Tutorial quiz submitted via Flux (you will find the link in Moodle) - completed by Thursday 5pm each week.
+  - Tutorial attendance.
+
+* 4 Assignments on: 
+  - Week 3  .green[15%] 
+  - Week 6  .green[20%]
+  - Week 9  .green[20%]
+  - Week 12 .green[40%] --&gt; Presentation 10% Content 30%
+
+.bold[Total:] 100%
+
+---
+class: left, middle
+# ETC5513 code of conduct
+
+.content-box-neutral[
+* .bold[ Please feel free to ask questions and offering ideas to the group.] 
+* All questions, suggestions or comments .bold[are welcomed and must be respected] by the group.
+* There is .bold[no] such a thing as a stupid question
+* .bold[Remember, while working in teams clarity, organization and communication are extremely important.]
+* .bold[Please feel free to let me know about suggestions, problems and/or complains at any time.]
+]
+
+.green[The lectures will be recorded and the link to the recordings will appear in Moodle.]
+
+
+
+
+---
+
+class: left, middle
+# Lectures and tutorial locations
+
+&lt;br&gt;
+- .green[Lectures] online `\(\rightarrow\)` 6:00 - 8:00pm .bold[Tuesdays]
+- .green[Tutorials] online/classroom `\(\rightarrow\)` .bold[Please see your allocation]
+
+
+
+---
+
+class: left, middle
+# Consultation hours
+
+.content-box-soft[ 
+- .green[.bold[Patricia]] `\(\rightarrow\)` Fridays 4:00pm - 5:00pm online ]
+.content-box-soft[ 
+- .green[.bold[Fan]] `\(\rightarrow\)` Thursdays 4:00pm - 5:30pm online]
+.content-box-soft[ 
+- .green[.bold[Naveen]] `\(\rightarrow\)` Mondays from 5:30pm - 6:15pm online]
+
+**Please see Moodle for Zoom details**
+
+---
+class: centre, middle
+# Questions
+
+
+&lt;img src="figs/questions.png" width="80%" /&gt;
+
+
+---
+class:  center, top
+
+# Let's get started
+
+
+![](https://media.giphy.com/media/3ohc1fpw7snh6omAaQ/giphy.gif)
+
+
+
+---
+class:  left, top
+
+# Motivation for reproducible research
+.bold[
+ .red[
+ What is the problem with that approach?
+ ]
+]
+.pull-left[
+.bold[Step 1]
+* You carry out your analyses in R, Python or Matlab (using some code)
+* You carry out your analyses using excell
+]
+ .pull-right[
+ .bold[Step 2]
+* Then you paste your results into your Word document or your latex document or your Page document.
+![](https://media.giphy.com/media/l0HlQXlQ3nHyLMvte/giphy.gif)
+]
+
+
+---
+class:  middle, center
+# Critical issue
+![](https://media.giphy.com/media/11fDMHAzihB8D6/giphy.gif)
+
+---
+class:  left, middle
+
+# How about?
+.content-box-soft[ 
+* How about if one parameter or one number changes in your data `\(\rightarrow\)` .bold[GAME OVER]  `\(\rightarrow\)` 
+Start all over again :-(!
+]
+.content-box-soft[ 
+* Copy and paste ... 
+]
+.content-box-soft[ 
+* After a week, a month, a year... it is very hard to remember all the steps!
+]
+
+
+---
+class:  middle, top
+
+# What is replicable research?
+
+"Research results are
+generally considered .green[replicable] if there is sufficient information available for
+independent researchers to make the same findings using the same procedures with existing and or new data"
+
+
+
+---
+class:  left, top
+
+# Replication and literate programming
+Lykken [1968] calls “operational replication”:
+
+* .bold[Operational replication] “requires the complete
+and open exchange of data, procedures, and materials”. 
+
+* .bold[Literate programming]: Donald Knuth coined the term literate programming in the 1970s to refer to a source file
+that could be both run by a computer and “woven” with a formatted presentation document
+[Knuth, 1992].
+
+
+---
+class: center, middle
+# Literate programming
+
+.content-box-duke-green[
+Literate programming is an approach to writing reports using software that weaves together the source code and text at the time of creation. 
+]
+---
+class: left, top
+# Reproducible research and replicability
+
+**Definitions by the USA National Academies of Science, Engineering and Medicine**:
+
+- .green[Reproducibility] ("computational reproducibility") means obtaining consistent computational results using the same input data, computational steps, methods, code, and conditions of analysis. 
+
+- .green[Replicability] means obtaining consistent results across studies aimed at answering the same scientific question, each of which has obtained its own data
+
+
+  
+[Refere: Report on reproducibility and replicability](https://www.nap.edu/read/25303/chapter/1#xix)
+
+
+
+
+---
+
+class:  left, top
+
+# Reproducible research
+
+* Working to make your research reproducible does require extra upfront effort.
+
+* Making a project reproducible from the start encourages you to use better
+work habits.
+
+* It should push you to bring your data and source code up to a higher
+level of quality than you might if you “thought ‘no one was looking’ ” [Donoho,
+2010, 386]. 
+
+* Reproducible research needs to be stored so that other researchers can actually access the data and source code. 
+
+* Changes are easier to implement `\(\rightarrow\)` specially when using dynamic reproducible documents.
+
+* Reproducible research has higher impact.
+
+
+---
+class:  left, top
+# How? 
+
+Using tools for reproducible research and reporting
+
+&lt;img src="figs/how.jpg" width="70%" style="display: block; margin: auto;" /&gt;
+.tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@toddquackenbush?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Todd Quackenbush&lt;/a&gt; on &lt;a href="https://unsplash.com/s/photos/tools?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+
+---
+class:  left, middle
+# Dynamic documents
+
+.content-box-green[
+* Include code use for data analysis + 
+                       report text =
+                       Report/Paper
+]
+All in a .green[sequential] and .green[dynamic way]!
+
+
+---
+class:  middle, center
+# Let's start from the begining
+
+.content-box-green[ 
+Code?
+]
+
+.tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@markusspiske?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Markus Spiske&lt;/a&gt; on &lt;a href="https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+
+&lt;img src="figs/markus-spiske-GDP_CXFHiuI-unsplash.jpg" width="60%" /&gt;
+
+
+&lt;!-- # .pull-left[ --&gt;
+&lt;!-- # .content-box-green[ --&gt;
+&lt;!-- # Code? --&gt;
+&lt;!-- # ] --&gt;
+&lt;!-- # ] --&gt;
+&lt;!-- # .pull-right[ --&gt;
+&lt;!-- #  --&gt;
+&lt;!-- # ```{r out.width = '100%', echo = FALSE} --&gt;
+&lt;!-- # knitr::include_graphics("figs/markus-spiske-GDP_CXFHiuI-unsplash.jpg") --&gt;
+&lt;!-- ``` --&gt;
+&lt;!-- ] --&gt;
+---
+class:  left, top
+
+# R and Rstudio
+.left-column[
+&lt;img src="figs/1000px-R_logo.svg.png" width="100%" /&gt;
+]
+
+]
+.right-column[
+![](https://rstudio.com/wp-content/uploads/2018/10/RStudio-Logo.svg)
+
+]
+
+They are related but they are not the same. Why??
+
+
+---
+class:  left, top
+## Tools for reproducible research
+
+* .content-box-soft[ R programing language
+]
+   - R enables researchers to read data, create data visualizations and run statistical analyses.
+   - R has thousands of libraries
+   - R has a very active development community that is constantly expanding.
+  
+  
+
+* .content-box-soft[R libraries/packages --&gt; facilitate reproducibility:
+]
+     * Knitr and Rmarkdown:
+       - Allow us to connect R-based analyses to
+presentation, papers and reports documents created with markup languages such as LaTeX and
+Markdown
+
+
+---
+class:  left, top
+# Rstudio 
+
+* .content-box-soft[ Is an integrated developer environment (IDE): 
+]
+  - R by itself has the capabilities necessary to gather and analyze data,
+and with a little help from knitr/Rmarkdown and markup languages, present
+results in a way that is highly reproducible. 
+
+
+* .content-box-soft[ RStudio allows you to do all of
+these things more easily. 
+]
+
+  - It also is a happy medium between R’s text-based interface
+and a pure GUI. 
+  - It is not the only IDE! Examples `\(\Rightarrow\)` Emacs
+  - It is closely integrated with the version control programs Git and SVN.
+  
+
+*   .content-box-soft[It has a cloud counterpart called .bold[Rstudio Cloud]
+]
+
+
+---
+class:  left, middle
+
+# Important distinction
+
+ .content-box-neutral[R is the programming language]
+
+&lt;img src="figs/R.png" width="100%" /&gt;
+
+---
+class:  left, middle
+
+.content-box-neutral[Rstudio is an integrated development environment that facilitates R coding and provides a very 
+easy interface to connect the work with version control systems.]
+
+&lt;img src="figs/Rstudio.png" width="100%" /&gt;
+
+
+
+---
+# Rstudio Cloud
+
+Rstudio version in the Cloud
+
+&lt;img src="figs/Rstudiocloud.png" width="90%" /&gt;
+
+Why??
+
+
+---
+# Rstudio Cloud
+
+- Allows the users to run reproducible reports without the need of installing any additional software or configurations in their own computer. It basically looks exactly like Rstudio but it runs in the cloud and can be loaded using any browser.  
+
+- Rstudio Cloud allows us to work in the same environment
+regardless the computer operating system that each of you have in your computers.
+
+- Rstudio will provide the means for us to first focus on learning R and Rstudio without having to worry about installing them locally in each computer (we'll do that later once you are more familiar with the language and the Rstudio environment).
+
+
+---
+class:  middle, top
+
+# Version control
+
+&lt;img src="figs/marco-lermer-bHZ2_D4bTfg-unsplash.jpg" width="60%" style="display: block; margin: auto;" /&gt;
+
+.tiny[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@malepics?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Marco Lermer&lt;/a&gt; on &lt;a href="https://unsplash.com/?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+
+.bold[.green[Version control is a system that records changes to a file or set of files over time
+so that you can recall specific versions later.]]
+
+
+---
+class:  left, top
+
+# Git
+
+"Git is a distributed version-control system for tracking changes in source 
+code during software development. It is designed for coordinating work among 
+programmers, but it can be used to track changes in any set of files. Its 
+goals include speed, data integrity,  and support for distributed, non-linear workflows"
+
+https://en.wikipedia.org/wiki/Git
+
+&lt;img src="figs/Git-Logo-Black.png" width="60%" /&gt;
+
+
+---
+class:  left, top
+
+## Github, Bitbucket and others
+
+.pull-left[
+&lt;img src="figs/atlassian_Bitbucket_Logo.png" width="100%" /&gt;
+]
+
+.pull-right[
+&lt;img src="figs/GitHub_Logo.png" width="100%" /&gt;
+]
+
+
+* Both are cloud-based hosting service that lets you manage Git repositories.
+
+* .green[GitHub/Bitbucket] are code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+
+
+---
+class:  center, top
+# Git and Github
+
+&lt;img src="figs/Gitvs.Github-1a.jpg" width="60%" /&gt;
+
+
+Source: https://blog.devmountain.com/git-vs-github-whats-the-difference/
+
+---
+class:  center, middle
+# Course ingredients 
+
+&lt;img src="figs/caitlin-mclean-L2iyrw_soPQ-unsplash.jpg" width="70%" /&gt;
+
+.small[&lt;span&gt;Photo by &lt;a href="https://unsplash.com/@ul01?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Caitlin Mclean&lt;/a&gt; on &lt;a href="https://unsplash.com/@ul01?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText"&gt;Unsplash&lt;/a&gt;&lt;/span&gt;]
+---
+class:  left, top
+# Five main tools
+
+.green[
+- R
+- Rstudio 
+- Git 
+- Github 
+- `\(+\)` one more that I will introduce later :-)
+]
+
+.content-box-soft[
+During this semester these tools will be essential for us to 
+build reproducible and collaborative research practices.
+]
+
+---
+class:  left, top
+
+# Tutorial
+
+.green[This week the tutorial will focus on providing an introduction to different resources]:
+
+* These slides will be available in Moodle.
+
+* You will also find the tutorial activity for this week.
+
+* Familiarize yourself with all the resources provided in the tutorial and get to know your colleagues (this is quite important!).
+
+* Overview of Rstudio Cloud and an R intro.
+
+
+---
+class:  middle, center
+
+# Looking forward to meeting you all next week!
+
+
+&lt;img src="figs/ana-bg-2-rect.jpg" width="80%" /&gt;
+
+
+
+&lt;!-- --- --&gt;
+&lt;!-- class:  center, top --&gt;
+&lt;!-- # Let's get started by opening a project in Rstudio Cloud! --&gt;
+
+&lt;!-- ```{r out.width = '50%', echo = FALSE} --&gt;
+&lt;!-- knitr::include_graphics("figs/screenshot.png") --&gt;
+&lt;!-- ``` --&gt;
+
+
+&lt;!-- - --&gt;
+&lt;!-- --- --&gt;
+&lt;!-- class:  center, top --&gt;
+&lt;!-- # A reproducible project --&gt;
+
+&lt;!-- 1. Please go to the website and log in using your Rstudio cloud loging details --&gt;
+&lt;!-- 2. Select project called XXX --&gt;
+&lt;!-- 3. Make a local copy in your Rstudio Cloud --&gt;
+&lt;!-- 4. Using Knit at the top of the page to run the Rmd file --&gt;
+
+---
+
+
+
+
+background-image: url("figs/ana-bg-2-rect.jpg")
+background-size: cover
+class: hide-slide-number split-70
+count: false
+
+.column.shade_black[.content[
+
+&lt;br&gt;&lt;br&gt;
+
+
+
+.bottom_abs.width100[
+
+Lecturer: Patricia Menéndez
+
+Department of Econometrics and Business Statistics&lt;br&gt;
+
+
+
+
+
+]
+
+&lt;br /&gt;
+This work is licensed under a &lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License&lt;/a&gt;.
+
+&lt;a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"&gt;&lt;img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /&gt;&lt;/a&gt;
+
+
+]]
+
+
+
+&lt;div class="column transition monash-m-new delay-1s" style="clip-path:url(#swipe__clip-path);"&gt;
+&lt;div class="background-image" style="background-image:url('images/large.png');background-position: center;background-size:cover;margin-left:3px;"&gt;
+&lt;svg class="clip-svg absolute"&gt;
+&lt;defs&gt;
+&lt;clipPath id="swipe__clip-path" clipPathUnits="objectBoundingBox"&gt;
+&lt;polygon points="0.5745 0, 0.5 0.33, 0.42 0, 0 0, 0 1, 0.27 1, 0.27 0.59, 0.37 1, 0.634 1, 0.736 0.59, 0.736 1, 1 1, 1 0, 0.5745 0" /&gt;
+&lt;/clipPath&gt;
+&lt;/defs&gt;	
+&lt;/svg&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

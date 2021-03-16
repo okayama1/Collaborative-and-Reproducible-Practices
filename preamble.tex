@@ -1,0 +1,64 @@
+\usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{graphics} 
+\usepackage{float}
+
+
+%%%%%%%%%%%% 
+%\usepackage{bbm}
+%\usepackage{threeparttable}
+%\usepackage{expex}
+
+\usepackage{fancyhdr}
+\usepackage[singlelinecheck=false]{caption}
+\usepackage{tabularx}
+
+
+\setlength{\headheight}{60pt}
+
+\pagestyle{fancy}
+
+
+
+\rhead{\includegraphics[height=60pt]{AIMSLogoinline.png}}
+
+\lhead{}
+
+\usepackage[a4paper, total={6in, 8in}]{geometry}
+\renewcommand{\headrulewidth}{0.7pt}
+
+
+\definecolor{aimsblue}{rgb}{0, 0.29, 0.55}
+
+\newgeometry{textwidth=15cm,textheight=18cm}
+\renewcommand{\headrule}{{\color{aimsblue}%
+ \hrule width\headwidth height\headrulewidth \vskip-\headrulewidth}}
+
+\usepackage{xcolor}
+\usepackage{sectsty}
+\sectionfont{\color{aimsblue}}  
+\subsectionfont{\color{aimsblue}} 
+\subsubsectionfont{\color{aimsblue}} 
+
+% Length to control the \fancyheadoffset and the calculation of \headline
+% simultaneously
+\newlength\FHoffset
+\setlength\FHoffset{1cm}
+
+\addtolength\headwidth{2\FHoffset}
+\fancyheadoffset{\FHoffset}
+
+% these lengths will control the headrule trimming to the left and right 
+\newlength\FHleft
+\newlength\FHright
+
+% here the trimmings are controlled by the user
+\setlength\FHleft{1cm}
+\setlength\FHright{0cm}
+
+% The new definition of headrule that will take into acount the trimming(s)
+\newbox\FHline
+\setbox\FHline=\hbox{\hsize=\paperwidth%
+ \hspace*{\FHleft}%
+ \rule{\dimexpr\headwidth-\FHleft-\FHright\relax}{\headrulewidth}\hspace*{\FHright}%
+}
